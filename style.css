@@ -40,13 +40,15 @@ body, html {
     text-align: center;
 }
 
+/* ZMIANA: Zmodyfikowany styl dla sekcji z tekstem i wideo */
 #divider {
     background-image: url('images/urzadzenie-tlo11.jpg');
     min-height: 600px;
     display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    padding: 0 5%;
+    justify-content: center; /* Wyśrodkowuje elementy w poziomie */
+    align-items: center;     /* Wyśrodkowuje elementy w pionie */
+    padding: 40px 5%;       /* Dodaje padding dla bezpieczeństwa */
+    gap: 4%;                 /* Tworzy odstęp między tekstem a wideo */
 }
 
 @keyframes pulse-glow {
@@ -59,6 +61,17 @@ body, html {
     100% {
         box-shadow: 0 0 20px 7px rgba(255, 17, 0, 0.5), 0 10px 30px rgba(0, 0, 0, 0.3);
     }
+}
+
+/* NOWY STYL: Ramka z tekstem obok wideo */
+.video-description {
+    max-width: 35%;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+    text-align: left;
+    font-size: 0.9em;
 }
 
 .overlay-video {
@@ -91,19 +104,11 @@ body, html {
 
 /* --- SEKCJE Z TREŚCIĄ Z NOWYM, FALISTYM PRZEJŚCIEM --- */
 .content-section {
-    padding: 100px 20px; /* Zwiększamy padding, aby zrobić miejsce na falę */
+    padding: 100px 20px;
     background-color: var(--light-bg);
     text-align: center;
     position: relative;
-    
-    /* NOWY EFEKT: FALISTE KRAWĘDZIE ZAMIAST ROZMYCIA */
     clip-path: polygon(0 5%, 100% 0, 100% 95%, 0 100%);
-}
-
-.content-section h2 {
-    color: var(--accent-color);
-    font-size: 2.5em;
-    margin-bottom: 30px;
 }
 
 .content-section h3 {
@@ -146,10 +151,9 @@ footer {
     text-align: center;
     background-color: #333;
     color: #fff;
-    /* Dodajemy ujemny margines, aby stopka nachodziła na falę ostatniej sekcji */
     margin-top: -50px; 
     position: relative;
-    z-index: -1; /* Umieszczamy stopkę pod falą */
+    z-index: -1;
 }
 
 /* --- PRZYCISK CTA --- */
@@ -176,7 +180,6 @@ footer {
 /* --- POPRAWKI DLA URZĄDZEŃ MOBILNYCH --- */
 @media (max-width: 768px) {
     .content-section {
-        /* Na mobilkach możemy użyć prostszego cięcia lub go wyłączyć */
         clip-path: none;
         padding: 60px 20px;
     }
@@ -186,11 +189,16 @@ footer {
         z-index: 1;
     }
 
+    /* ZMIANA: Układ pionowy dla sekcji z wideo na smartfonach */
     #divider {
-        justify-content: center;
+        flex-direction: column; /* Zmiana układu z poziomego na pionowy */
+        gap: 30px;              /* Odstęp między tekstem (góra) a wideo (dół) */
+        padding: 60px 20px;
     }
 
+    /* ZMIANA: Dostosowanie rozmiarów tekstu i wideo na smartfonach */
+    .video-description,
     .overlay-video {
-        max-width: 85%;
+        max-width: 90%; /* Oba elementy zajmują podobną szerokość */
     }
 }
