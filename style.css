@@ -1,65 +1,77 @@
 /* --- ZMIENNE GLOBALNE (ŁATWA ZMIANA KOLORÓW) --- */
 :root {
-    --primary-bg: #ffffff;      /* Białe tło dla treści */
-    --text-color: #333333;      /* Ciemnoszary kolor tekstu */
-    --accent-color: #ff69aa;    /* Wyrazisty różowy jako kolor dodatkowy */
-    --light-bg: #f8f9fa;        /* Bardzo jasnoszare tło dla sekcji */
+    --primary-bg: #ffffff;
+    --text-color: #333333;
+    --accent-color: #ff69aa;
+    --light-bg: #f8f9fa;
+    --red-glow: #ff1100;
 }
 
 /* --- PODSTAWOWE STYLE I RESET --- */
 body, html {
     margin: 0;
     padding: 0;
-    font-family: 'Montserrat', sans-serif; /* Nowoczesna, czysta czcionka */
+    font-family: 'Montserrat', sans-serif;
     line-height: 1.6;
     color: var(--text-color);
-    scroll-behavior: smooth; /* Płynne przewijanie */
+    scroll-behavior: smooth;
+    -webkit-hyphens: auto;
+    -ms-hyphens: auto;
+    hyphens: auto;
 }
 
 /* --- KONTENER PARALAKSY --- */
 .parallax-container {
     position: relative;
-    background-attachment: fixed;  /* KLUCZOWA WŁAŚCIWOŚĆ DLA EFEKTU PARALAKSY */
+    background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    opacity: 0.9; /* Lekko przyciemnia tło, aby tekst był bardziej czytelny */
+    opacity: 0.9;
 }
 
-/* --- KONKRETNE SEKCJE Z TŁEM --- */
+/* --- SEKCJE Z TŁEM --- */
 #hero {
     background-image: url('images/urzadzenie-tlo.jpg');
-    min-height: 100vh; /* Sekcja zajmuje całą wysokość ekranu */
+    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
 }
 
-/* --- ZMIANA: Zmodyfikowany styl dla sekcji #divider --- */
 #divider {
     background-image: url('images/urzadzenie-tlo11.jpg');
     min-height: 600px;
-    
-    /* Dodane właściwości do pozycjonowania wideo wewnątrz */
     display: flex;
-    justify-content: flex-end; /* Przesuwa zawartość (wideo) na prawą stronę */
-    align-items: center;       /* Wyśrodkowuje wideo w pionie */
-    padding: 0 5%;             /* Dodaje 5% marginesu po prawej stronie, aby wideo nie dotykało krawędzi */
+    justify-content: flex-end;
+    align-items: center;
+    padding: 0 5%;
 }
 
-/* --- NOWY STYL: Styl dla wideo umieszczonego na tle paralaksy --- */
+@keyframes pulse-glow {
+    0% {
+        box-shadow: 0 0 20px 7px rgba(255, 17, 0, 0.5), 0 10px 30px rgba(0, 0, 0, 0.3);
+    }
+    50% {
+        box-shadow: 0 0 45px 18px rgba(255, 17, 0, 0.8), 0 10px 30px rgba(0, 0, 0, 0.3);
+    }
+    100% {
+        box-shadow: 0 0 20px 7px rgba(255, 17, 0, 0.5), 0 10px 30px rgba(0, 0, 0, 0.3);
+    }
+}
+
 .overlay-video {
-    max-width: 45%; /* Wideo zajmie maksymalnie 45% szerokości kontenera #divider */
-    height: auto;   /* Zachowuje oryginalne proporcje wideo */
-    border-radius: 15px; /* Zaokrąglone rogi dla nowoczesnego wyglądu */
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); /* Cień, który "odkleja" wideo od tła */
-    border: 3px solid rgba(255, 255, 255, 0.5); /* Delikatna, półprzezroczysta ramka */
+    max-width: 45%;
+    height: auto;
+    border-radius: 15px;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    animation: pulse-glow 3s infinite ease-in-out;
 }
 
-/* --- STYLIZACJA TEKSTU NA TLE PARALAKSY --- */
+/* --- TEKST NA TLE PARALAKSY --- */
 .hero-text {
-    background-color: rgba(255, 255, 255, 0.7); /* Półprzezroczyste tło dla czytelności */
+    background-color: rgba(255, 255, 255, 0.7);
     padding: 20px 40px;
     border-radius: 10px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.1);
@@ -67,24 +79,29 @@ body, html {
 
 .hero-text h1 {
     font-size: 3.5em;
-    color: var(--accent-color); /* Użycie różowego koloru */
+    color: var(--accent-color);
     margin: 0;
 }
 
 .hero-text p {
-    font-size: 1.2em;
-    margin: 10px 0 0;
+    font-size: 1.1em;
+    max-width: 900px;
+    margin: 20px auto 0 auto;
 }
 
-/* --- SEKCJE Z TREŚCIĄ --- */
+/* --- SEKCJE Z TREŚCIĄ Z NOWYM, FALISTYM PRZEJŚCIEM --- */
 .content-section {
-    padding: 60px 20px;
+    padding: 100px 20px; /* Zwiększamy padding, aby zrobić miejsce na falę */
     background-color: var(--light-bg);
     text-align: center;
+    position: relative;
+    
+    /* NOWY EFEKT: FALISTE KRAWĘDZIE ZAMIAST ROZMYCIA */
+    clip-path: polygon(0 5%, 100% 0, 100% 95%, 0 100%);
 }
 
 .content-section h2 {
-    color: var(--accent-color); /* Różowy nagłówek */
+    color: var(--accent-color);
     font-size: 2.5em;
     margin-bottom: 30px;
 }
@@ -98,18 +115,27 @@ body, html {
 }
 
 .content-section p, .content-section ul {
-    max-width: 800px; /* Ograniczenie szerokości tekstu dla lepszej czytelności */
+    max-width: 800px;
     margin: 0 auto 20px auto;
-    text-align: left;
+    text-align: justify;
 }
 
 .content-section ul {
     list-style-position: inside;
 }
 
+.image-gallery {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    margin-top: 40px;
+    align-items: center;
+}
+
 .inline-image {
-    max-width: 300px;
-    margin: 20px;
+    max-width: 350px;
+    height: auto;
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
@@ -120,9 +146,13 @@ footer {
     text-align: center;
     background-color: #333;
     color: #fff;
+    /* Dodajemy ujemny margines, aby stopka nachodziła na falę ostatniej sekcji */
+    margin-top: -50px; 
+    position: relative;
+    z-index: -1; /* Umieszczamy stopkę pod falą */
 }
 
-/* --- STYLE PRZYCISKU CTA (CALL TO ACTION) --- */
+/* --- PRZYCISK CTA --- */
 .cta-button {
     display: inline-block;
     background-color: var(--accent-color);
@@ -143,13 +173,24 @@ footer {
     box-shadow: 0 6px 20px rgba(233, 69, 96, 0.5);
 }
 
-/* --- NOWY STYL: Poprawka dla urządzeń mobilnych --- */
+/* --- POPRAWKI DLA URZĄDZEŃ MOBILNYCH --- */
 @media (max-width: 768px) {
+    .content-section {
+        /* Na mobilkach możemy użyć prostszego cięcia lub go wyłączyć */
+        clip-path: none;
+        padding: 60px 20px;
+    }
+    
+    footer {
+        margin-top: 0;
+        z-index: 1;
+    }
+
     #divider {
-        justify-content: center; /* Na małych ekranach wyśrodkowujemy wideo */
+        justify-content: center;
     }
 
     .overlay-video {
-        max-width: 85%; /* Wideo może zająć więcej miejsca na szerokość */
+        max-width: 85%;
     }
 }
