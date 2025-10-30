@@ -105,10 +105,9 @@ body, html {
     font-weight: 700;
 }
 
-/* ZMIANA: Dodano pogrubienie do kursywy */
 em {
     font-style: italic;
-    font-weight: 700; /* Dodane pogrubienie */
+    font-weight: 700;
     color: #555;
 }
 
@@ -189,6 +188,12 @@ footer {
 
 /* --- POPRAWKI DLA URZĄDZEŃ MOBILNYCH --- */
 @media (max-width: 768px) {
+
+    /* >>>>> NOWA, KLUCZOWA ZMIANA: Wyłączenie paralaksy na mobilkach <<<<< */
+    .parallax-container {
+        background-attachment: scroll; /* Zmienia "fixed" na "scroll" */
+    }
+
     .content-section {
         clip-path: none;
         padding: 60px 20px;
