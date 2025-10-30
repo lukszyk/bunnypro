@@ -1,0 +1,155 @@
+/* --- ZMIENNE GLOBALNE (ŁATWA ZMIANA KOLORÓW) --- */
+:root {
+    --primary-bg: #ffffff;      /* Białe tło dla treści */
+    --text-color: #333333;      /* Ciemnoszary kolor tekstu */
+    --accent-color: #ff69aa;    /* Wyrazisty różowy jako kolor dodatkowy */
+    --light-bg: #f8f9fa;        /* Bardzo jasnoszare tło dla sekcji */
+}
+
+/* --- PODSTAWOWE STYLE I RESET --- */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif; /* Nowoczesna, czysta czcionka */
+    line-height: 1.6;
+    color: var(--text-color);
+    scroll-behavior: smooth; /* Płynne przewijanie */
+}
+
+/* --- KONTENER PARALAKSY --- */
+.parallax-container {
+    position: relative;
+    background-attachment: fixed;  /* KLUCZOWA WŁAŚCIWOŚĆ DLA EFEKTU PARALAKSY */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: 0.9; /* Lekko przyciemnia tło, aby tekst był bardziej czytelny */
+}
+
+/* --- KONKRETNE SEKCJE Z TŁEM --- */
+#hero {
+    background-image: url('images/urzadzenie-tlo.jpg');
+    min-height: 100vh; /* Sekcja zajmuje całą wysokość ekranu */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+/* --- ZMIANA: Zmodyfikowany styl dla sekcji #divider --- */
+#divider {
+    background-image: url('images/urzadzenie-tlo11.jpg');
+    min-height: 600px;
+    
+    /* Dodane właściwości do pozycjonowania wideo wewnątrz */
+    display: flex;
+    justify-content: flex-end; /* Przesuwa zawartość (wideo) na prawą stronę */
+    align-items: center;       /* Wyśrodkowuje wideo w pionie */
+    padding: 0 5%;             /* Dodaje 5% marginesu po prawej stronie, aby wideo nie dotykało krawędzi */
+}
+
+/* --- NOWY STYL: Styl dla wideo umieszczonego na tle paralaksy --- */
+.overlay-video {
+    max-width: 45%; /* Wideo zajmie maksymalnie 45% szerokości kontenera #divider */
+    height: auto;   /* Zachowuje oryginalne proporcje wideo */
+    border-radius: 15px; /* Zaokrąglone rogi dla nowoczesnego wyglądu */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); /* Cień, który "odkleja" wideo od tła */
+    border: 3px solid rgba(255, 255, 255, 0.5); /* Delikatna, półprzezroczysta ramka */
+}
+
+/* --- STYLIZACJA TEKSTU NA TLE PARALAKSY --- */
+.hero-text {
+    background-color: rgba(255, 255, 255, 0.7); /* Półprzezroczyste tło dla czytelności */
+    padding: 20px 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.hero-text h1 {
+    font-size: 3.5em;
+    color: var(--accent-color); /* Użycie różowego koloru */
+    margin: 0;
+}
+
+.hero-text p {
+    font-size: 1.2em;
+    margin: 10px 0 0;
+}
+
+/* --- SEKCJE Z TREŚCIĄ --- */
+.content-section {
+    padding: 60px 20px;
+    background-color: var(--light-bg);
+    text-align: center;
+}
+
+.content-section h2 {
+    color: var(--accent-color); /* Różowy nagłówek */
+    font-size: 2.5em;
+    margin-bottom: 30px;
+}
+
+.content-section h3 {
+    font-size: 1.50em; 
+    color: var(--accent-color);
+    margin-top: 40px;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+.content-section p, .content-section ul {
+    max-width: 800px; /* Ograniczenie szerokości tekstu dla lepszej czytelności */
+    margin: 0 auto 20px auto;
+    text-align: left;
+}
+
+.content-section ul {
+    list-style-position: inside;
+}
+
+.inline-image {
+    max-width: 300px;
+    margin: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* --- STOPKA --- */
+footer {
+    padding: 20px;
+    text-align: center;
+    background-color: #333;
+    color: #fff;
+}
+
+/* --- STYLE PRZYCISKU CTA (CALL TO ACTION) --- */
+.cta-button {
+    display: inline-block;
+    background-color: var(--accent-color);
+    color: #fff;
+    padding: 15px 30px;
+    margin-top: 20px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1em;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 4px 15px rgba(233, 69, 96, 0.4);
+}
+
+.cta-button:hover {
+    background-color: #d13a52;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(233, 69, 96, 0.5);
+}
+
+/* --- NOWY STYL: Poprawka dla urządzeń mobilnych --- */
+@media (max-width: 768px) {
+    #divider {
+        justify-content: center; /* Na małych ekranach wyśrodkowujemy wideo */
+    }
+
+    .overlay-video {
+        max-width: 85%; /* Wideo może zająć więcej miejsca na szerokość */
+    }
+}
