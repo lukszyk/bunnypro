@@ -189,20 +189,39 @@ footer {
 /* --- POPRAWKI DLA URZĄDZEŃ MOBILNYCH --- */
 @media (max-width: 768px) {
 
-    /* >>>>> NOWA, KLUCZOWA ZMIANA: Wyłączenie paralaksy na mobilkach <<<<< */
     .parallax-container {
-        background-attachment: scroll; /* Zmienia "fixed" na "scroll" */
+        background-attachment: scroll;
     }
 
+    /* ZMIANA 1: Zmniejszenie tekstu w sekcji "hero" na mobilkach */
+    .hero-text {
+        padding: 20px 25px; /* Mniejsze paddingi boczne */
+    }
+    .hero-text h1 {
+        font-size: 2.5em; /* Znaczące zmniejszenie tytułu */
+    }
+    .hero-text p {
+        font-size: 1em; /* Zmniejszenie tekstu akapitu */
+    }
+
+    /* USUNIĘTE: Usunęliśmy regułę, która wyłączała clip-path na mobilkach.
+       Teraz skośne przejście będzie widoczne również na telefonie,
+       co wizualnie oddzieli sekcje i zlikwiduje "ścianę tekstu".
+    
     .content-section {
         clip-path: none;
         padding: 60px 20px;
     }
+    */
+   
+    /* USUNIĘTE: Usunęliśmy regułę dla stopki, aby zachowywała się
+       tak samo jak na desktopie, chowając się pod skośnym cięciem.
     
     footer {
         margin-top: 0;
         z-index: 1;
     }
+    */
 
     #divider {
         flex-direction: column;
