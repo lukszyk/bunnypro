@@ -40,15 +40,14 @@ body, html {
     text-align: center;
 }
 
-/* ZMIANA: Zmodyfikowany styl dla sekcji z tekstem i wideo */
 #divider {
     background-image: url('images/urzadzenie-tlo11.jpg');
     min-height: 600px;
     display: flex;
-    justify-content: center; /* Wyśrodkowuje elementy w poziomie */
-    align-items: center;     /* Wyśrodkowuje elementy w pionie */
-    padding: 40px 5%;       /* Dodaje padding dla bezpieczeństwa */
-    gap: 4%;                 /* Tworzy odstęp między tekstem a wideo */
+    justify-content: center;
+    align-items: center;
+    padding: 40px 5%;
+    gap: 4%;
 }
 
 @keyframes pulse-glow {
@@ -63,7 +62,6 @@ body, html {
     }
 }
 
-/* NOWY STYL: Ramka z tekstem obok wideo */
 .video-description {
     max-width: 35%;
     background-color: rgba(255, 255, 255, 0.8);
@@ -82,7 +80,7 @@ body, html {
     animation: pulse-glow 3s infinite ease-in-out;
 }
 
-/* --- TEKST NA TLE PARALAKSY --- */
+/* --- STYLE TEKSTU --- */
 .hero-text {
     background-color: rgba(255, 255, 255, 0.7);
     padding: 20px 40px;
@@ -102,7 +100,19 @@ body, html {
     margin: 20px auto 0 auto;
 }
 
-/* --- SEKCJE Z TREŚCIĄ Z NOWYM, FALISTYM PRZEJŚCIEM --- */
+.product-name {
+    color: var(--accent-color);
+    font-weight: 700;
+}
+
+/* ZMIANA: Dodano pogrubienie do kursywy */
+em {
+    font-style: italic;
+    font-weight: 700; /* Dodane pogrubienie */
+    color: #555;
+}
+
+/* --- SEKCJE Z TREŚCIĄ --- */
 .content-section {
     padding: 100px 20px;
     background-color: var(--light-bg);
@@ -189,16 +199,14 @@ footer {
         z-index: 1;
     }
 
-    /* ZMIANA: Układ pionowy dla sekcji z wideo na smartfonach */
     #divider {
-        flex-direction: column; /* Zmiana układu z poziomego na pionowy */
-        gap: 30px;              /* Odstęp między tekstem (góra) a wideo (dół) */
+        flex-direction: column;
+        gap: 30px;
         padding: 60px 20px;
     }
 
-    /* ZMIANA: Dostosowanie rozmiarów tekstu i wideo na smartfonach */
     .video-description,
     .overlay-video {
-        max-width: 90%; /* Oba elementy zajmują podobną szerokość */
+        max-width: 90%;
     }
 }
